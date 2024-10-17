@@ -7,7 +7,7 @@ import (
 
 func (server *Server) initRouts(mux *http.ServeMux, manager *middlewares.Manager) {
 	mux.Handle(
-		"GET /hello",
+		"GET /hello-world",
 		manager.With(
 			http.HandlerFunc(server.handlers.Hello),
 		),

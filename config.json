@@ -1,0 +1,30 @@
+{
+    "mode": "debug",
+    "service_name": "service_name",
+    "http_port": 3000,
+    "jwt_secret": "H656H6KH56K46KK4644654Y65YI6Y5Y",
+
+    "db": {
+      "host": "127.0.0.1",
+      "port": 5432,
+      "name": "db_name",
+      "userr": "postgres",
+      "user": "root",
+      "pass": "admin",
+      "max_idle_time_in_minute": 60,
+      "enable_ssl_mode": false
+    },
+    "mongodb": {
+      "host": "127.0.0.1",
+      "port": 27017,
+      "database": "test",
+      "user": "root",
+      "password": "admin",
+      "max_idle_time_in_minute": 60,
+      "enable_ssl": false
+    },
+    "migrations": "migrations",
+    "rmq_reconnect_delay": 5,
+    "rmq_retry_interval": 600,
+    "rmq_url": "amqp://guest:guest@localhost:5672/"
+}

@@ -1,8 +1,8 @@
 package db
 
 import (
-	"base_service/logger"
 	"log/slog"
+	"user-service/logger"
 
 	sq "github.com/Masterminds/squirrel"
 )

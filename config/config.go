@@ -1,5 +1,7 @@
 package config
 
+import "sync"
+
 type DBConfig struct {
 	Host                string `json:"host"                    validate:"required"`
 	Port                int    `json:"port"                    validate:"required"`
@@ -42,11 +44,12 @@ type Config struct {
 }
 
 var config *Config
+var cnfOnce = sync.Once{}
 
-func init() {
-	config = &Config{}
-}
+func GetConfig() *Config {
+	cnfOnce.Do(func() {
+		loadConfig()
+	})
 
-func GetConfig() Config {
-	return *config
+	return config
 }

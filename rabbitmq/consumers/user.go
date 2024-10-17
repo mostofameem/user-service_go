@@ -1,11 +1,11 @@
 package consumers
 
 import (
-	"base_service/logger"
-	"base_service/web/utils"
 	"encoding/json"
 	"fmt"
 	"log/slog"
+	"user-service/logger"
+	"user-service/web/utils"
 
 	pgjsonb "github.com/asif-mahmud/pg-jsonb"
 	"github.com/guregu/null/v5"

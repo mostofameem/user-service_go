@@ -1,13 +1,13 @@
 package middlewares
 
 import (
-	"base_service/config"
-	"base_service/web/utils"
 	"fmt"
 	"log"
 	"net/http"
 	"strings"
 	"time"
+	"user-service/config"
+	"user-service/web/utils"
 
 	"github.com/golang-jwt/jwt/v5"
 )

@@ -1,11 +1,11 @@
 package db
 
 import (
-	"base_service/config"
 	"fmt"
 	"log/slog"
 	"os"
 	"time"
+	"user-service/config"
 
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"

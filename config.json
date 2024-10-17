@@ -25,6 +25,7 @@
     },
     "migrations": "migrations",
     "rmq_reconnect_delay": 5,
+    "rmq_queue_prefix":"mostofa",
     "rmq_retry_interval": 600,
     "rmq_url": "amqp://guest:guest@localhost:5672/"
 }

@@ -2,8 +2,8 @@ package rabbitmq
 
 import (
 	"log/slog"
-	"base_service/rabbitmq/consumers"
 	"os"
+	"user-service/rabbitmq/consumers"
 )
 
 func RunConsumers() {

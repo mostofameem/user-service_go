@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"base_service/config"
-	"base_service/logger"
+	"user-service/config"
+	"user-service/logger"
 )
 
 type recorder struct {

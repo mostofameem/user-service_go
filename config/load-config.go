@@ -9,9 +9,9 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-var confFlag = flag.String("c", "../config.json", "Configaration file path")
+var confFlag = flag.String("conf", "config.json", "config file path")
 
-func LoadConfig() error {
+func loadConfig() error {
 
 	flag.Parse()
 	var data []byte

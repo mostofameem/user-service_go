@@ -1,14 +1,14 @@
 package web
 
 import (
-	"base_service/config"
-	"base_service/web/handlers"
-	"base_service/web/middlewares"
-	"base_service/web/swagger"
 	"fmt"
 	"log/slog"
 	"net/http"
 	"sync"
+	"user-service/config"
+	"user-service/web/handlers"
+	"user-service/web/middlewares"
+	"user-service/web/swagger"
 )
 
 type Server struct {

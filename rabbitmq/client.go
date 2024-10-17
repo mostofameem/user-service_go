@@ -1,8 +1,8 @@
 package rabbitmq
 
 import (
-	"base_service/config"
 	"time"
+	"user-service/config"
 
 	rmq "github.com/rabbitmq/amqp091-go"
 )

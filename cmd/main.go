@@ -13,9 +13,9 @@ func main() {
 
 	logger.SetupLogger(cnf.ServiceName)
 
-	handlers := handlers.NewHandler(&cnf)
+	handlers := handlers.NewHandler(cnf)
 
-	server, err := web.NewServer(&cnf, handlers)
+	server, err := web.NewServer(cnf, handlers)
 	if err != nil {
 		slog.Error("failed to create the server:", logger.Extra(map[string]any{
 			"error": err,

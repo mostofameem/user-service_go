@@ -1,6 +1,6 @@
 package rabbitmq
 
-import "base_service/logger"
+import "user-service/logger"
 
 type Message struct {
 	Exchange   string

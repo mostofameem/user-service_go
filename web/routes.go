@@ -1,8 +1,8 @@
 package web
 
 import (
-	"base_service/web/middlewares"
 	"net/http"
+	"user-service/web/middlewares"
 )
 
 func (server *Server) initRouts(mux *http.ServeMux, manager *middlewares.Manager) {

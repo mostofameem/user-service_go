@@ -1,6 +1,6 @@
 package handlers
 
-import "base_service/config"
+import "user-service/config"
 
 type Handlers struct {
 	cnf *config.Config

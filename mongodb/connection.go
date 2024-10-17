@@ -1,12 +1,12 @@
 package mongodb
 
 import (
-	"base_service/config"
 	"context"
 	"fmt"
 	"log"
 	"log/slog"
 	"time"
+	"user-service/config"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

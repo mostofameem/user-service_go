@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 	"log/slog"
-	"base_service/config"
-	"base_service/logger"
 	"sync"
 	"time"
+	"user-service/config"
+	"user-service/logger"
 
 	rmq "github.com/rabbitmq/amqp091-go"
 )
@@ -42,7 +42,7 @@ func (p *Publisher) Publish(msg Message) {
 }
 
 func (p *Publisher) tryPublish(msg Message) error {
-	
+
 	if p.channel == nil {
 		err := fmt.Errorf("channel is nil. queueing message. route: %s", msg.RoutingKey)
 		slog.Error(err.Error())

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"mime"
 	"net/http"
-	"base_service/web/middlewares"
-	"base_service/web/utils"
 	"path"
 	"strings"
+	"user-service/web/middlewares"
+	"user-service/web/utils"
 )
 
 var distFS embed.FS

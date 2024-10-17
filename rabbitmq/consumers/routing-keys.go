@@ -2,7 +2,7 @@ package consumers
 
 import (
 	"fmt"
-	"base_service/config"
+	"user-service/config"
 )
 
 // Restaurant

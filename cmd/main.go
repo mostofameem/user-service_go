@@ -4,8 +4,9 @@ import (
 	"log/slog"
 	"user-service/config"
 	"user-service/logger"
-	"user-service/web"
-	"user-service/web/handlers"
+	"user-service/rest"
+	"user-service/rest/handlers"
+	"user-service/route"
 )
 
 func main() {
@@ -13,9 +14,11 @@ func main() {
 
 	logger.SetupLogger(cnf.ServiceName)
 
-	handlers := handlers.NewHandler(cnf)
+	routeSvc := route.NewService(cnf)
 
-	server, err := web.NewServer(cnf, handlers)
+	handlers := handlers.NewHandler(cnf, routeSvc)
+
+	server, err := rest.NewServer(cnf, handlers)
 	if err != nil {
 		slog.Error("failed to create the server:", logger.Extra(map[string]any{
 			"error": err,

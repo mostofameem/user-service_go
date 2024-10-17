@@ -1,8 +1,8 @@
-package web
+package rest
 
 import (
 	"net/http"
-	"user-service/web/middlewares"
+	"user-service/rest/middlewares"
 )
 
 func (server *Server) initRouts(mux *http.ServeMux, manager *middlewares.Manager) {
@@ -10,6 +10,13 @@ func (server *Server) initRouts(mux *http.ServeMux, manager *middlewares.Manager
 		"GET /hello-world",
 		manager.With(
 			http.HandlerFunc(server.handlers.Hello),
+		),
+	)
+
+	mux.Handle(
+		"POST /register",
+		manager.With(
+			http.HandlerFunc(server.handlers.Register),
 		),
 	)
 

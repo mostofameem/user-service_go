@@ -2,7 +2,6 @@ package utils
 
 import (
 	"encoding/json"
-	"errors"
 	"net/http"
 )
 
@@ -12,8 +11,7 @@ func SendJson(w http.ResponseWriter, status int, data interface{}) {
 	str, err := json.Marshal(data)
 
 	if err != nil {
-		err = errors.New("failed converting into json")
-		SendError(w, status, err)
+		SendError(w, status, "failed converting into json", nil)
 		return
 	}
 	w.WriteHeader(status)

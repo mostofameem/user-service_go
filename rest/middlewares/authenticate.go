@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 	"user-service/config"
-	"user-service/web/utils"
+	"user-service/rest/utils"
 
 	"github.com/golang-jwt/jwt/v5"
 )
@@ -74,7 +74,7 @@ func AuthenticateJWT(next http.Handler) http.Handler {
 
 		authHeader := r.Header.Get("Authorization")
 		if authHeader == "" {
-			utils.SendError(w, http.StatusForbidden, fmt.Errorf("authorization header is missing"))
+			utils.SendError(w, http.StatusForbidden, "authorization header is missing", nil)
 			return
 		}
 
@@ -87,7 +87,7 @@ func AuthenticateJWT(next http.Handler) http.Handler {
 		// Token has expired, check for refresh token
 		refreshHeader := r.Header.Get("Refresh-Token")
 		if refreshHeader == "" {
-			utils.SendError(w, http.StatusUnauthorized, fmt.Errorf("refresh token missing"))
+			utils.SendError(w, http.StatusUnauthorized, "refresh token missing", nil)
 			return
 		}
 
@@ -95,7 +95,7 @@ func AuthenticateJWT(next http.Handler) http.Handler {
 		refreshString := strings.TrimPrefix(refreshHeader, "Bearer ")
 		refreshToken, err := ParseToken(refreshString)
 		if err != nil {
-			utils.SendError(w, http.StatusUnauthorized, fmt.Errorf("invalid refresh token: %v", err))
+			utils.SendError(w, http.StatusUnauthorized, "invalid refresh token", err)
 			return
 		}
 
@@ -105,7 +105,7 @@ func AuthenticateJWT(next http.Handler) http.Handler {
 			claims["exp"] = time.Now().Add(1 * time.Minute).Unix()
 			newToken, err := GenerateAccessTokenFromRefreshToken(claims)
 			if err != nil {
-				utils.SendError(w, http.StatusInternalServerError, fmt.Errorf("error generating new token: %v", err))
+				utils.SendError(w, http.StatusInternalServerError, "error generating new token", err)
 				return
 			}
 			log.Println(newToken)
@@ -114,7 +114,7 @@ func AuthenticateJWT(next http.Handler) http.Handler {
 			return
 		}
 
-		utils.SendError(w, http.StatusUnauthorized, fmt.Errorf("refresh token invalid"))
+		utils.SendError(w, http.StatusUnauthorized, "refresh token invalid", nil)
 	})
 }
 
@@ -139,7 +139,7 @@ func GetUserIDFromToken(tokenStr string) (int, error) {
 }
 
 func unauthorizedResponse(w http.ResponseWriter) {
-	utils.SendError(w, http.StatusUnauthorized, fmt.Errorf("Unauthorized"))
+	utils.SendError(w, http.StatusUnauthorized, "Unauthorized", nil)
 }
 
 func Authenticate(next http.Handler) http.Handler {

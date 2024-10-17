@@ -1,4 +1,4 @@
-package web
+package rest
 
 import (
 	"fmt"
@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"sync"
 	"user-service/config"
-	"user-service/web/handlers"
-	"user-service/web/middlewares"
-	"user-service/web/swagger"
+	"user-service/rest/handlers"
+	"user-service/rest/middlewares"
+	"user-service/rest/swagger"
 )
 
 type Server struct {

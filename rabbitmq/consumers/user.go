@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log/slog"
 	"user-service/logger"
-	"user-service/web/utils"
+	"user-service/rest/utils"
 
 	pgjsonb "github.com/asif-mahmud/pg-jsonb"
 	"github.com/guregu/null/v5"

@@ -39,23 +39,26 @@ type GrpcUrlsConfig struct {
 	Posts string `json:"posts"        validate:"required"`
 }
 type Config struct {
-	Mode              Mode                  `json:"mode"                       validate:"required"`
-	ServiceName       string                `json:"service_name"               validate:"required"`
-	HttpPort          int                   `json:"http_port"                  validate:"required"`
-	GrpcPort          int                   `json:"grpc_port"                        validate:"required"`
-	JwtSecret         string                `json:"jwt_secret"                 validate:"required"`
-	DB                DBConfig              `json:"db"                         validate:"required"`
-	MDB               MongoDBConfig         `json:"mongodb"                    validate:"required"`
-	MigrationSource   string                `json:"migrations"                 validate:"required"`
-	HealthCheckRoute  string                `json:"HEALTH_CHECK_ROUTE"`
-	RmqQueuePrefix    string                `json:"rmq_queue_prefix"           validate:"required"`
-	ApiKeyEnabled     bool                  `json:"API_KEY_ENABLED"`
-	ApiKey            string                `json:"API_KEY"`
-	RabbitmqURL       string                `json:"rmq_url"                    validate:"required"`
-	RmqReconnectDelay int                   `json:"rmq_reconnect_delay"        validate:"required"`
-	RmqRetryInterval  int                   `json:"rmq_retry_interval"         validate:"required"`
-	GrpcUrls          GrpcUrlsConfig        `json:"grpc_urls"                             validate:"required"`
-	GrpcRetryPolicy   GrpcRetryPolicyConfig `json:"grpc_retry_policy"                             validate:"required"`
+	Mode                    Mode                  `json:"mode"                       validate:"required"`
+	ServiceName             string                `json:"service_name"               validate:"required"`
+	HttpPort                int                   `json:"http_port"                  validate:"required"`
+	GrpcPort                int                   `json:"grpc_port"                        validate:"required"`
+	JwtSecret               string                `json:"jwt_secret"                 validate:"required"`
+	DB                      DBConfig              `json:"db"                         validate:"required"`
+	MDB                     MongoDBConfig         `json:"mongodb"                    validate:"required"`
+	MigrationSource         string                `json:"migrations"                 validate:"required"`
+	HealthCheckRoute        string                `json:"HEALTH_CHECK_ROUTE"`
+	RmqQueuePrefix          string                `json:"rmq_queue_prefix"           validate:"required"`
+	ApiKeyEnabled           bool                  `json:"API_KEY_ENABLED"`
+	ApiKey                  string                `json:"API_KEY"`
+	RabbitmqURL             string                `json:"rmq_url"                    validate:"required"`
+	RmqReconnectDelay       int                   `json:"rmq_reconnect_delay"        validate:"required"`
+	RmqRetryInterval        int                   `json:"rmq_retry_interval"         validate:"required"`
+	GrpcUrls                GrpcUrlsConfig        `json:"grpc_urls"                             validate:"required"`
+	GrpcRetryPolicy         GrpcRetryPolicyConfig `json:"grpc_retry_policy"                             validate:"required"`
+	RedisURL                string                `json:"redis_url"                  validate:"required"`
+	RedisSearchPrefix       string                `json:"redis_search_prefix"        validate:"required"`
+	BranchIdRetentionPeriod int                   `json:"branch_id_retention_period" validate:"required"`
 }
 
 var config *Config

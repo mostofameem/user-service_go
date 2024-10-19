@@ -30,5 +30,8 @@
     "rmq_reconnect_delay": 5,
     "rmq_queue_prefix":"mostofa",
     "rmq_retry_interval": 600,
-    "rmq_url": "amqp://guest:guest@localhost:5672/"
+    "rmq_url": "amqp://guest:guest@localhost:5672/",
+    "redis_url": "redis://:foodi@13.250.184.116:6379",
+    "redis_search_prefix": "search-service:",
+    "branch_id_retention_period": 15
 }

@@ -34,3 +34,31 @@ func (repo *UserTypeRepo) GetProfile(ctx context.Context, id int) (*User, error)
 
 	return &userInfo, nil
 }
+
+func (repo *UserTypeRepo) GetProfileWithEmail(ctx context.Context, email string) (*User, error) {
+	query, args, err := NewQueryBuilder().
+		Select("id,name,email,dob,type,is_active").
+		From(repo.table).
+		Where(sq.Eq{"email": email}).
+		ToSql()
+	if err != nil {
+		slog.Error(err.Error())
+		return nil, err
+	}
+
+	var userInfo User
+	err = repo.db.QueryRowContext(ctx, query, args...).Scan(
+		&userInfo.Id,
+		&userInfo.Name,
+		&userInfo.Email,
+		&userInfo.Dob,
+		&userInfo.Type,
+		&userInfo.Is_active,
+	)
+	if err != nil {
+		slog.Error(err.Error())
+		return nil, err
+	}
+
+	return &userInfo, nil
+}

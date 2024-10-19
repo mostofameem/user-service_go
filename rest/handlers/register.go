@@ -31,9 +31,10 @@ func (handlers *Handlers) Register(w http.ResponseWriter, r *http.Request) {
 		Dob:   req.Dob,
 		Type:  req.Type,
 	})
+
 	if err != nil {
 		slog.Error(err.Error())
-		utils.SendError(w, http.StatusInternalServerError, "Internal server error", utils.ParseValidationErrors(err))
+		utils.SendError(w, http.StatusInternalServerError, err.Error(), utils.ParseValidationErrors(err))
 		return
 	}
 

@@ -4,14 +4,15 @@ WIN_TARGET:=base-code.exe
 SERVER_CMD:=./${TARGET}
 PROTOC_DEST:=./
 PROTOC_FLAGS:=--go_out=${PROTOC_DEST} --go_opt=paths=source_relative --go-grpc_out=${PROTOC_DEST} --go-grpc_opt=paths=source_relative
-USER_PROTO_FILES:=./grpc/user/user.proto
+POSTS_PROTO_FILES:=./grpc/posts/posts.proto
+USERS_PROTO_FILES:=./grpc/users/users.proto
 
 # example migration create command -
 # migrate create -ext sql -seq -dir migrations create-some-table
 
 build-proto:
-	protoc ${PROTOC_FLAGS} ${USER_PROTO_FILES}
-
+	protoc ${PROTOC_FLAGS} ${POSTS_PROTO_FILES}
+	protoc ${PROTOC_FLAGS} ${USERS_PROTO_FILES}
 run-server:
 	${SERVER_CMD}
 

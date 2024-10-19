@@ -9,7 +9,7 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-var confFlag = flag.String("conf", "config.json", "config file path")
+var confFlag = flag.String("conf", "../config.json", "config file path")
 
 func loadConfig() error {
 

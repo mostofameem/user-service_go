@@ -1,13 +1,24 @@
 package db
 
-import "github.com/Masterminds/squirrel"
+import (
+	"sync"
 
-var psql squirrel.StatementBuilderType
+	"github.com/Masterminds/squirrel"
+)
 
-func InitQueryBuilder() {
-	psql = squirrel.StatementBuilder.PlaceholderFormat(squirrel.Dollar)
+var queryBuildOnce sync.Once
+
+type QueryBuilder struct {
+	squirrel.StatementBuilderType
 }
 
-func GetQueryBuilder() squirrel.StatementBuilderType {
+var psql QueryBuilder
+
+func NewQueryBuilder() QueryBuilder {
+	queryBuildOnce.Do(func() {
+		psql = QueryBuilder{
+			StatementBuilderType: squirrel.StatementBuilder.PlaceholderFormat(squirrel.Dollar),
+		}
+	})
 	return psql
 }

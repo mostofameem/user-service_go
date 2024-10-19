@@ -1,4 +1,4 @@
 development:
-  dialect: postgres
-  datasource: user=root password=admin host=127.0.0.1 port=5432 dbname=book_server sslmode=disable
+  dialect: user-service
+  datasource: user=root password=admin host=127.0.0.1 port=5432 dbname=user-service sslmode=disable
 

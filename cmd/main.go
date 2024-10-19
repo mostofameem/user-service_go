@@ -3,6 +3,7 @@ package main
 import (
 	"log/slog"
 	"user-service/config"
+	"user-service/grpc"
 	"user-service/logger"
 	"user-service/rest"
 	"user-service/rest/handlers"
@@ -25,6 +26,8 @@ func main() {
 		}))
 		return
 	}
+	grpcServer := grpc.NewGRPC(cnf, routeSvc)
 	server.Start()
+	grpcServer.Start()
 	server.Wg.Wait()
 }

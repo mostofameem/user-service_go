@@ -4,17 +4,16 @@ import (
 	"encoding/json"
 	"log/slog"
 	"net/http"
-	"time"
 	"user-service/rest/utils"
 	"user-service/route"
 )
 
 type userReq struct {
-	Username string    `json:"username"`
-	Password string    `json:"password"`
-	Email    string    `json:"email"`
-	Dob      time.Time `json:"dob"`
-	Type     string    `json:"type"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Email    string `json:"email"`
+	Dob      string `json:"dob"`
+	Type     string `json:"type"`
 }
 
 func (handlers *Handlers) Register(w http.ResponseWriter, r *http.Request) {

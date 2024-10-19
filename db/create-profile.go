@@ -25,7 +25,7 @@ func (r *UserTypeRepo) Register(ctx *context.Context, usr User) error {
 	columns := map[string]interface{}{
 		"name":       usr.Name,
 		"email":      usr.Email,
-		"pass":       hashPassword(usr.Pass),
+		"pass":       usr.Pass,
 		"dob":        usr.Dob,
 		"type":       usr.Type,
 		"is_active":  false,
